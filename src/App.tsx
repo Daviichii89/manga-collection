@@ -1,12 +1,14 @@
+import MangaList from './components/MangaList'
 import SearchComponent from './components/SearchComponent'
 
 function App() {
   return (
-    <main className='bg-black min-h-screen text-center'>
-      <h1 className='text-3xl font-bold underline text-white mb-2'>
-        Anime
+    <main className='min-h-screen text-center p-4'>
+      <h1 className='text-3xl font-bold underline mb-6'>
+        Manga
       </h1>
       <SearchComponent />
+      <MangaList />
     </main>
   )
 }

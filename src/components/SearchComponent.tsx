@@ -18,7 +18,7 @@ const SearchComponent = () => {
     setKeyword(evt.target.value)
   }
   return (
-    <section>
+    <section className='mt-4'>
         <input
         type='text'
         name='search'
