@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Dispatch } from 'redux';
 import getManga from '../api/getManga';
+import { AppDispatch } from './store';
 
 interface Manga {
     title: string | null
@@ -52,11 +52,11 @@ export const mangaReducer = (state = initialState, action: ActionTypes) => {
 const getMangaStartAction = () => ({
     type: SEARCH_MANGAS_START 
 })
-const getMangaFailedAction = (error: any) => ({
+const getMangaFailedAction = (error: string) => ({
         type: SEARCH_MANGAS_FAILED,
         payload: error   
 })
-export const getMangaSuccessAction = (keyword: string) => async (dispatch: Dispatch) => {
+export const getMangaSuccessAction = (keyword: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(getMangaStartAction())
         const response = await getManga(keyword)
@@ -65,6 +65,7 @@ export const getMangaSuccessAction = (keyword: string) => async (dispatch: Dispa
             payload: response
         })
     } catch (error) {
-        dispatch(getMangaFailedAction(error))
+        // dispatch(getMangaFailedAction(error))
+        console.log(getMangaFailedAction)
     }
 }
