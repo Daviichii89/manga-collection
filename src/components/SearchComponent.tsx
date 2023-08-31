@@ -5,34 +5,34 @@ import { useDispatch } from 'react-redux'
 type FormData = string
 
 const SearchComponent = () => {
-    const dispatch = useDispatch()
-  const [keyword, setKeyword] = useState<FormData>()
+  const dispatch = useDispatch()
+  const [keyword, setKeyword] = useState<FormData>('')
 
-  const handleSubmit = (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault()
     dispatch(getMangaSuccessAction(keyword))
     setKeyword('')
   }
-
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setKeyword(evt.target.value)
   }
   return (
     <section className='mt-4'>
+      <form onSubmit={handleSubmit}>
         <input
-        type='text'
-        name='search'
-        placeholder='Search...'
-        value={keyword}
-        onChange={handleChange}
-      />
-      <button
-        type='submit'
-        className='bg-blue-500 rounded text-white border p-2'
-        onClick={handleSubmit}
-      >
-        Buscar
-      </button>
+          type='text'
+          name='search'
+          placeholder='Search...'
+          value={keyword}
+          onChange={handleChange}
+        />
+        <button
+          type='submit'
+          className='bg-blue-500 rounded text-white border p-2'
+        >
+          Buscar
+        </button>
+      </form>
     </section>
   )
 }

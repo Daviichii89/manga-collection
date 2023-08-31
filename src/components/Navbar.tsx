@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -7,8 +7,8 @@ const Navbar = () => {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "w-full hover:bg-slate-100 border-b-2 border-red-500"
-            : "w-full hover:bg-slate-100"
+            ? 'w-full hover:bg-slate-100 border-b-2 border-red-500'
+            : 'w-full hover:bg-slate-100'
         }
       >
         Inicio
@@ -17,11 +17,11 @@ const Navbar = () => {
         to="/collection"
         className={({ isActive }) =>
           isActive
-            ? "w-full hover:bg-slate-100 border-b-2 border-red-500"
-            : "w-full hover:bg-slate-100"
+            ? 'w-full hover:bg-slate-100 border-b-2 border-red-500'
+            : 'w-full hover:bg-slate-100'
         }
       >
-        Mi collección
+        Mi colección
       </NavLink>
     </nav>
   );

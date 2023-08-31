@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Collection from "./pages/Collection";
-import Navbar from "./components/Navbar";
-import Error404 from "./pages/Error404";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Collection from './pages/Collection';
+import Navbar from './components/Navbar';
+import Error404 from './pages/Error404';
+import MangaDetail from './pages/MangaDetail';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/mangas/:name" element={<MangaDetail />} />
           <Route path="/collection" element={<Collection />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

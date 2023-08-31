@@ -2,8 +2,10 @@
 import getManga from '../api/getManga';
 import { AppDispatch } from './store';
 
-interface Manga {
+export interface Manga {
+    id: string
     title: string | null
+    
 }
 
 interface SearchActionStart {
@@ -22,7 +24,11 @@ interface SearchActionSuccess {
 
 type ActionTypes = SearchActionStart | SearchActionFailed | SearchActionSuccess
 
-const initialState: Manga[] | object = {}
+interface InitialState {
+    mangas:Manga[] 
+}
+
+const initialState: InitialState = {mangas: []}
 
 const SEARCH_MANGAS_START = 'SEARCH_MANGAS_START'
 const SEARCH_MANGAS_FAILED = 'SEARCH_MANGAS_FAILED'
@@ -60,6 +66,7 @@ export const getMangaSuccessAction = (keyword: string) => async (dispatch: AppDi
     try {
         dispatch(getMangaStartAction())
         const response = await getManga(keyword)
+        console.log(response)
         dispatch({
             type: SEARCH_MANGAS_SUCCESS,
             payload: response
