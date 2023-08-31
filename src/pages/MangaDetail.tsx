@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { RootState } from '../redux/store'
+import { Manga } from '../api/getManga'
 
 const MangaDetail = () => {
-    const mangas = useSelector((store: RootState) => store.mangas.mangas?.data)
+    const mangas: Record<number, Manga> | undefined = useSelector((store: RootState) => store.mangas.mangas || {})
     const location = useLocation()
-    const manga = mangas.find((manga) => manga.title === location.state.title && manga.mal_id === location.state.mal_id)
+    const manga = Object.values(mangas).find((manga: Manga) => manga.title === location.state.title && manga.mal_id === location.state.mal_id)
   return (
     <>
         {manga && 
@@ -17,7 +18,7 @@ const MangaDetail = () => {
                 </span>
                 <div className='flex flex-row mt-4'>
                     <picture>
-                        <img src={manga.images.jpg.image_url} alt={manga.title} className='w-48' />
+                        <img src={manga.images.webp.image_url} alt={manga.title} className='w-48' />
                     </picture>
                     <div className='ml-4'>
                         <p>

@@ -1,4 +1,4 @@
-interface Manga {
+export interface Manga {
   mal_id: number
   title: string
   images: {
