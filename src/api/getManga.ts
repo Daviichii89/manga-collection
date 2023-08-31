@@ -80,7 +80,7 @@ const getManga = async (manga_title: string) => {
         }
       })
       return mangasMap
-    } catch (error) {
+    } catch (error: unknown) {
       console.log(error);
     }
   };

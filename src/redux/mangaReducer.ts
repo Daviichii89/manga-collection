@@ -1,5 +1,5 @@
+import { AnyAction, Dispatch } from 'redux';
 import getManga, { Manga } from '../api/getManga';
-import { AppDispatch } from './store';
 
 interface InitialState {
     mangas: Record<number, Manga> | undefined
@@ -45,11 +45,11 @@ export const mangaReducer = (state = initialState, action: ActionTypes) => {
 const getMangaStartAction = () => ({
     type: SEARCH_MANGAS_START 
 })
-const getMangaFailedAction = (error: string) => ({
+const getMangaFailedAction = (error: unknown) => ({
         type: SEARCH_MANGAS_FAILED,
         payload: error   
 })
-export const getMangaSuccessAction = (keyword: string) => async (dispatch: AppDispatch) => {
+export const getMangaSuccessAction = (keyword: string) => async (dispatch: Dispatch<AnyAction>) => {
     try {
         dispatch(getMangaStartAction())
         const response = await getManga(keyword)

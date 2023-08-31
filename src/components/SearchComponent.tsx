@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { getMangaSuccessAction } from '../redux/mangaReducer'
 import { useDispatch } from 'react-redux'
 
@@ -8,7 +8,7 @@ const SearchComponent = () => {
   const dispatch = useDispatch()
   const [keyword, setKeyword] = useState<FormData>('')
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
     dispatch(getMangaSuccessAction(keyword))
     setKeyword('')
