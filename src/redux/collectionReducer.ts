@@ -1,30 +1,36 @@
-import { AppDispatch } from './store'
+import { AnyAction, Dispatch } from 'redux'
+import { Manga } from '../api/getManga'
 
-const initialState = {}
-
-const ADD_MANGA_TO_COLLECTION = 'ADD_MANGA_TO_COLLECTION'
-const DELETE_MANGA_FROM_COLLECTION = 'DELETE_MANGA_FROM_COLLECTION'
-
+interface InitialState {
+    mangas: Record<number, Manga> | undefined
+}
 interface AddMangaToCollectionAction {
     type: typeof ADD_MANGA_TO_COLLECTION
-    payload: object
+    payload: Manga
 }
 
 interface DeleteMangaFromCollectionAction {
     type: typeof DELETE_MANGA_FROM_COLLECTION
-    payload: object
+    payload: Manga
 }
 
 type ActionTypes = AddMangaToCollectionAction | DeleteMangaFromCollectionAction
 
+const initialState: InitialState = {mangas: {}}
+const ADD_MANGA_TO_COLLECTION = 'ADD_MANGA_TO_COLLECTION'
+const DELETE_MANGA_FROM_COLLECTION = 'DELETE_MANGA_FROM_COLLECTION'
+
 export const collectionReducer = (state = initialState, action: ActionTypes) => {
     switch(action.type) {
         case ADD_MANGA_TO_COLLECTION: {
-            return {...state, mangasCollection: action.payload}
+            const updatedMangasOnAdd = { ...state.mangas, [action.payload.mal_id]: action.payload}
+            return {...state, mangas: updatedMangasOnAdd}
         }
 
         case DELETE_MANGA_FROM_COLLECTION: {
-            return {...state, mangasCollection: action.payload}
+            const updatedMangasOnDelete = { ...state.mangas}
+            delete updatedMangasOnDelete[action.payload.mal_id]
+            return {...state, mangas: updatedMangasOnDelete}
         }
 
         default: {
@@ -33,13 +39,13 @@ export const collectionReducer = (state = initialState, action: ActionTypes) => 
     }
 }
 
-export const AddMangaToCollectionAction = (manga: object) => (dispatch: AppDispatch) => {
+export const AddMangaToCollectionAction = (manga: Manga) => (dispatch: Dispatch<AnyAction>) => {
     dispatch({
         type: ADD_MANGA_TO_COLLECTION,
         payload: manga
     })
 }
-export const DeleteMangaFromCollectionAction = (manga: object) => (dispatch: AppDispatch) => {
+export const DeleteMangaFromCollectionAction = (manga: Manga) => (dispatch: Dispatch<AnyAction>) => {
     dispatch({
         type: DELETE_MANGA_FROM_COLLECTION,
         payload: manga

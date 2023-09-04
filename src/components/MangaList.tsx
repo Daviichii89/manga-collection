@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom'
 import { RootState } from '../redux/store'
 import { Manga } from '../api/getManga'
 
-export interface MangaList {
-  mangas: Record<number, Manga>
-}
-
 const MangaList = (): JSX.Element => {
   const mangas = useSelector((store: RootState) => store.mangas.mangas)
   return (

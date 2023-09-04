@@ -17,7 +17,7 @@ interface SearchActionSuccess {
 }
 type ActionTypes = SearchActionStart | SearchActionFailed | SearchActionSuccess
 
-const initialState: InitialState = {mangas: []}
+const initialState: InitialState = {mangas: {}}
 const SEARCH_MANGAS_START = 'SEARCH_MANGAS_START'
 const SEARCH_MANGAS_FAILED = 'SEARCH_MANGAS_FAILED'
 const SEARCH_MANGAS_SUCCESS = 'SEARCH_MANGAS_SUCCESS'
