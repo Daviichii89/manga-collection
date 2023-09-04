@@ -1,27 +1,27 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-evenly">
+    <nav className="flex justify-evenly mt-2">
       <NavLink
         to="/"
         className={({ isActive }) =>
           isActive
-            ? 'w-full hover:bg-slate-100 border-b-2 border-red-500'
-            : 'w-full hover:bg-slate-100'
+            ? "w-full bg-slate-200 hover:bg-slate-100 border-b-2 border-red-500 p-1 md:p-4"
+            : "w-full bg-slate-200 hover:bg-slate-100 p-1 md:p-4"
         }
       >
-        Inicio
+        Home
       </NavLink>
       <NavLink
         to="/collection"
         className={({ isActive }) =>
           isActive
-            ? 'w-full hover:bg-slate-100 border-b-2 border-red-500'
-            : 'w-full hover:bg-slate-100'
+            ? "w-full bg-slate-200 hover:bg-slate-100 border-b-2 border-red-500 p-1 md:p-4"
+            : "w-full bg-slate-200 hover:bg-slate-100 p-1 md:p-4"
         }
       >
-        Mi colección
+        My collection
       </NavLink>
     </nav>
   );
