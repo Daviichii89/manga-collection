@@ -15,8 +15,9 @@ interface DeleteMangaFromCollectionAction {
 }
 
 type ActionTypes = AddMangaToCollectionAction | DeleteMangaFromCollectionAction
-
-const initialState: InitialState = {mangas: {}}
+const mangasFromLocalStorage  = localStorage.getItem('mangas')
+const mangasJSON = mangasFromLocalStorage ? JSON.parse(mangasFromLocalStorage) : undefined
+const initialState: InitialState = {mangas: mangasJSON || {}}
 const ADD_MANGA_TO_COLLECTION = 'ADD_MANGA_TO_COLLECTION'
 const DELETE_MANGA_FROM_COLLECTION = 'DELETE_MANGA_FROM_COLLECTION'
 
@@ -24,12 +25,14 @@ export const collectionReducer = (state = initialState, action: ActionTypes) => 
     switch(action.type) {
         case ADD_MANGA_TO_COLLECTION: {
             const updatedMangasOnAdd = { ...state.mangas, [action.payload.mal_id]: action.payload}
+            window.localStorage.setItem('mangas', JSON.stringify(updatedMangasOnAdd))
             return {...state, mangas: updatedMangasOnAdd}
         }
 
         case DELETE_MANGA_FROM_COLLECTION: {
             const updatedMangasOnDelete = { ...state.mangas}
             delete updatedMangasOnDelete[action.payload.mal_id]
+            window.localStorage.setItem('mangas', JSON.stringify(updatedMangasOnDelete))
             return {...state, mangas: updatedMangasOnDelete}
         }
 
@@ -51,3 +54,6 @@ export const DeleteMangaFromCollectionAction = (manga: Manga) => (dispatch: Disp
         payload: manga
     })
 }
+
+const nombre = 'David'
+localStorage.setItem('nombre', nombre)
