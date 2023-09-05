@@ -2,7 +2,7 @@ import { AnyAction, Dispatch } from 'redux'
 import { Manga } from '../api/getManga'
 
 interface InitialState {
-    mangas: Record<number, Manga> | undefined
+    mangas: Record<number, Manga> | object
 }
 interface AddMangaToCollectionAction {
     type: typeof ADD_MANGA_TO_COLLECTION

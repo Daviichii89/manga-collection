@@ -1,15 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-import { RootState } from "../redux/store";
-import { Manga } from "../api/getManga";
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { RootState } from '../redux/store';
+import { Manga } from '../api/getManga';
 import {
   AddMangaToCollectionAction,
   DeleteMangaFromCollectionAction,
-} from "../redux/collectionReducer";
+} from '../redux/collectionReducer';
 
 const MangaDetail = () => {
   const dispatch = useDispatch();
-  const mangas: Record<number, Manga> | undefined = useSelector(
+  const mangas: Record<string, Manga> | undefined = useSelector(
     (store: RootState) => store.mangas.mangas || {}
   );
   const location = useLocation();
@@ -18,9 +18,10 @@ const MangaDetail = () => {
       manga.title === location.state.title &&
       manga.mal_id === location.state.mal_id
   );
-  const mangasCollection: Record<number, Manga> | undefined = useSelector(
+  const mangasCollection: Record<string, Manga> | object = useSelector(
     (store: RootState) => store.mangasCollection.mangas
   );
+  console.log(mangasCollection)
   const haveManga = Object.values(mangasCollection).find(
     (mangaCollection: Manga) => {
       return mangaCollection.mal_id === manga?.mal_id;
@@ -29,7 +30,7 @@ const MangaDetail = () => {
   return (
     <>
       {manga && (
-        <section className="border flex flex-col p-2 bg-white">
+        <section className="md:w-3/4 border flex flex-col p-2 bg-white min-h-[70vh] md:min-h-[80vh]">
           <span className="text-2xl font-bold">{manga.title}</span>
           <div className="flex flex-row justify-center items-center mt-4">
             <picture>
@@ -40,13 +41,13 @@ const MangaDetail = () => {
               />
             </picture>
             <div className="ml-4">
-              <p>En publicación: {manga.publishing !== false ? "Sí" : "No"}</p>
+              <p>En publicación: {manga.publishing !== false ? 'Sí' : 'No'}</p>
               <p>Año de publicación: {manga.published.prop.from.year}</p>
               <p>
-                Año de finalización:{" "}
+                Año de finalización:{' '}
                 {manga.published.prop.to.year !== null
                   ? manga.published.prop.to.year
-                  : "No definido"}
+                  : 'No definido'}
               </p>
             </div>
           </div>

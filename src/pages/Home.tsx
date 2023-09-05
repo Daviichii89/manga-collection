@@ -1,5 +1,4 @@
-import SearchComponent from "../components/SearchComponent";
-import MangaList from "../components/MangaList";
+import MangaList from '../components/MangaList';
 
 const Home = () => {
   return (
