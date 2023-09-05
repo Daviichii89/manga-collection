@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-evenly mt-2 w-full md:w-3/4">
+    <nav className="flex justify-evenly mt-2 w-full sm:w-4/5 md:w-3/4">
       <NavLink
         to="/"
         className={({ isActive }) =>

@@ -5,7 +5,6 @@ import { Manga } from '../api/getManga';
 
 const MangaList = (): JSX.Element => {
   const mangas = useSelector((store: RootState) => store.mangas.mangas);
-  console.log(mangas)
   return (
     <section
       className={

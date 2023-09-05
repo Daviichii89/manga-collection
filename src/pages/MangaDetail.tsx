@@ -21,7 +21,6 @@ const MangaDetail = () => {
   const mangasCollection: Record<string, Manga> | object = useSelector(
     (store: RootState) => store.mangasCollection.mangas
   );
-  console.log(mangasCollection)
   const haveManga = Object.values(mangasCollection).find(
     (mangaCollection: Manga) => {
       return mangaCollection.mal_id === manga?.mal_id;
@@ -30,7 +29,7 @@ const MangaDetail = () => {
   return (
     <>
       {manga && (
-        <section className="md:w-3/4 border flex flex-col p-2 bg-white min-h-[70vh] md:min-h-[80vh]">
+        <section className="sm:w-4/5 md:w-3/4 border flex flex-col p-2 bg-white min-h-[70vh] md:min-h-[80vh]">
           <span className="text-2xl font-bold">{manga.title}</span>
           <div className="flex flex-row justify-center items-center mt-4">
             <picture>

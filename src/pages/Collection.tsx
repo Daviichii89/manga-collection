@@ -11,8 +11,8 @@ const Collection = (): JSX.Element => {
     <section
       className={
         mangas && Object.keys(mangas).length !== 0
-          ? 'md:w-3/4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8 gap-5 bg-white p-4 min-h-[70vh] md:min-h-[80vh]'
-          : 'w-full md:w-3/4'
+          ? 'sm:w-4/5 md:w-3/4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8 gap-5 bg-white p-4 min-h-[70vh] md:min-h-[80vh]'
+          : 'w-full sm:w-4/5 md:w-3/4'
       }
     >
       {mangas && Object.keys(mangas).length !== 0 ? (
