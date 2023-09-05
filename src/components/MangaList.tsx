@@ -1,23 +1,24 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { RootState } from "../redux/store";
-import { Manga } from "../api/getManga";
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { RootState } from '../redux/store';
+import { Manga } from '../api/getManga';
 
 const MangaList = (): JSX.Element => {
   const mangas = useSelector((store: RootState) => store.mangas.mangas);
+  console.log(mangas)
   return (
     <section
       className={
-        mangas
-          ? "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8 bg-white gap-5 p-4"
-          : "w-full"
+        mangas && Object.values(mangas).length !== 0
+          ? 'grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8 bg-white gap-5 p-4'
+          : 'w-full'
       }
     >
-      {mangas && mangas ? (
+      {mangas && Object.values(mangas).length !== 0 ? (
         Object.values(mangas).map((manga: Manga) => {
           const { mal_id, title, images } = manga;
           return (
-            <div key={mal_id}>
+            <div key={mal_id} className='overflow-hidden'>
               <Link
                 to={`/mangas/${title}`}
                 state={{ mal_id, title }}
@@ -26,7 +27,7 @@ const MangaList = (): JSX.Element => {
                 <img
                   src={images.webp.image_url}
                   alt={title}
-                  className="w-full border border-black"
+                  className="w-full border border-black hover:opacity-50 hover:scale-[1.3] transition-all duration-500 ease-in-out"
                 />
               </Link>
             </div>
