@@ -29,18 +29,18 @@ describe('<SearchComponent />', () => {
         render(<Provider store={store}>
                 <SearchComponent />
             </Provider>)
-        expect(screen.getByPlaceholderText(/search.../i)).toBeInTheDocument()
-        await userEvent.click(screen.getByRole('button', {name: /buscar/i}))
+        expect(screen.getByPlaceholderText(/search for your mangas.../i)).toBeInTheDocument()
+        await userEvent.click(screen.getByRole('button', {name: /search/i}))
     })
     it('Should updates keyword state on input change or the button is clicked', async () => {
         render(<Provider store={store}>
             <SearchComponent />
         </Provider>)
         const handleSubmit = jest.fn()
-        const input = screen.getByPlaceholderText(/search.../i)
+        const input = screen.getByPlaceholderText(/search for your mangas.../i)
         await userEvent.type(input, 'Naruto' )
         expect(input).toHaveValue('Naruto')
-        const button = screen.getByText(/buscar/i)
+        const button = screen.getByText(/search/i)
         await userEvent.click(button)
         expect(handleSubmit).toHaveBeenCalled()
         expect(input).toHaveValue('')

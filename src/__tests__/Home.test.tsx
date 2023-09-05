@@ -11,7 +11,7 @@ describe('<Home />', () => {
                 <Home />
             </Provider>
         )
-        expect(screen.getByPlaceholderText(/search.../i)).toBeInTheDocument()
-        expect(screen.getByRole('button', { name: 'Buscar' })).toBeInTheDocument()
+        expect(screen.getByAltText(/manga-shonen/i)).toBeInTheDocument()
+        
     })
 })

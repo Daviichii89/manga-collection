@@ -16,7 +16,7 @@ describe('<App />', () => {
         )
         expect(screen.getByText(/manga/i)).toBeInTheDocument()
     })
-    it('Should navigates to Collection Page', () => {
+    it('Should navigates to Collection Page', async () => {
         render(
             <MemoryRouter initialEntries={['/collection']}>
                 <Provider store={store}>
@@ -25,7 +25,7 @@ describe('<App />', () => {
             </MemoryRouter>
         )
 
-        userEvent.click(screen.getByText(/mi colección/i))
-        expect(screen.getByText(/my collection/i))
+        await userEvent.click(screen.getByText(/my collection/i))
+        expect(screen.getByText(/empty./i)).toBeInTheDocument()
     })
 })

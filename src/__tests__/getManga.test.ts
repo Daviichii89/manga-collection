@@ -1,5 +1,5 @@
-import getManga from '../api/getManga'
-
 describe('getManga', () => {
-    
+    it('render getManga', () => {
+        
+    })
 })

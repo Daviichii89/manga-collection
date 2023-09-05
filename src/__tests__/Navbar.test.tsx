@@ -11,8 +11,8 @@ test('navigates to the correct route when links are clicked', async () => {
         <Navbar />
     </Router>
   );
-  await userEvent.click(screen.getByText('Mi colección'));
+  await userEvent.click(screen.getByText(/my collection/i));
   expect(history.location.pathname).toBe('/collection')  
-  await userEvent.click(screen.getByText('Inicio'));
+  await userEvent.click(screen.getByText(/home/i));
   expect(history.location.pathname).toBe('/')
 });

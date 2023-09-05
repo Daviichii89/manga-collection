@@ -32,6 +32,9 @@ const getManga = async (manga_title: string) => {
     const url = `https://api.jikan.moe/v4/manga?q=${manga_title}`;
     try {
       const response = await fetch(url);
+      if(!response.ok) {
+        throw new Error('Request error')
+      }
       const result = await response.json();
 
       const mangas: Manga[] =  result.data
@@ -81,7 +84,8 @@ const getManga = async (manga_title: string) => {
       })
       return mangasMap
     } catch (error: unknown) {
-      console.log(error);
+      console.error(error);
+      throw error
     }
   };
   

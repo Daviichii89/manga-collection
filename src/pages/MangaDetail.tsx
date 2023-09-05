@@ -1,14 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { RootState } from '../redux/store';
+import {MangaCover} from '../components/MangaCover';
+import MangaInfo from '../components/MangaInfo';
+import CollectionButton from '../components/CollectionButton';
 import { Manga } from '../api/getManga';
-import {
-  AddMangaToCollectionAction,
-  DeleteMangaFromCollectionAction,
-} from '../redux/collectionReducer';
+import { RootState } from '../redux/store';
+import { useSelector } from 'react-redux';
 
 const MangaDetail = () => {
-  const dispatch = useDispatch();
   const mangas: Record<string, Manga> | undefined = useSelector(
     (store: RootState) => store.mangas.mangas || {}
   );
@@ -18,59 +17,25 @@ const MangaDetail = () => {
       manga.title === location.state.title &&
       manga.mal_id === location.state.mal_id
   );
-  const mangasCollection: Record<string, Manga> | object = useSelector(
-    (store: RootState) => store.mangasCollection.mangas
-  );
-  const haveManga = Object.values(mangasCollection).find(
-    (mangaCollection: Manga) => {
-      return mangaCollection.mal_id === manga?.mal_id;
-    }
-  );
+  
   return (
     <>
       {manga && (
         <section className="sm:w-4/5 md:w-3/4 border flex flex-col p-2 bg-white min-h-[70vh] md:min-h-[80vh]">
           <span className="text-2xl font-bold">{manga.title}</span>
           <div className="flex flex-row justify-center items-center mt-4">
-            <picture>
-              <img
-                src={manga.images.webp.image_url}
-                alt={manga.title}
-                className="w-48"
-              />
-            </picture>
-            <div className="ml-4">
-              <p>En publicación: {manga.publishing !== false ? 'Sí' : 'No'}</p>
-              <p>Año de publicación: {manga.published.prop.from.year}</p>
-              <p>
-                Año de finalización:{' '}
-                {manga.published.prop.to.year !== null
-                  ? manga.published.prop.to.year
-                  : 'No definido'}
-              </p>
-            </div>
+            <MangaCover images={manga.images.webp.image_url} title={manga.title} />
+            <MangaInfo
+              publishing={manga.publishing}
+              fromYear={manga.published.prop.from.year}
+              toYear={manga.published.prop.to.year}
+            />
           </div>
-          <div className="mt-4">
-            {haveManga ? (
-              <button
-                className="border rounded-full w-56 p-2 bg-red-500 text-white md:hover:bg-red-400"
-                onClick={() => dispatch(DeleteMangaFromCollectionAction(manga))}
-              >
-                Remove from my collection
-              </button>
-            ) : (
-              <button
-                className="border rounded-full w-56 p-2 bg-green-500 text-white md:hover:bg-green-400"
-                onClick={() => dispatch(AddMangaToCollectionAction(manga))}
-              >
-                Add to my collection
-              </button>
-            )}
-          </div>
+          <CollectionButton manga={manga} />
         </section>
       )}
     </>
   );
 };
 
-export default MangaDetail;
+export default React.memo(MangaDetail);

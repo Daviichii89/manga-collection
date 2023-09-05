@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { Manga } from '../api/getManga';
-import { Link } from 'react-router-dom';
+import MangaListItem from '../components/MangaListItem';
 
 const Collection = (): JSX.Element => {
   const mangas = useSelector(
@@ -16,24 +16,9 @@ const Collection = (): JSX.Element => {
       }
     >
       {mangas && Object.keys(mangas).length !== 0 ? (
-        Object.values(mangas).map((manga: Manga) => {
-          const { mal_id, title, images } = manga;
-          return (
-            <picture key={mal_id} className='overflow-hidden'>
-              <Link
-                to={`/mangas/${title}`}
-                state={{ mal_id, title }}
-                className="w-48"
-              >
-                <img
-                  src={images.webp.image_url}
-                  alt={title}
-                  className="w-full border border-black hover:opacity-50 hover:scale-[1.3] transition-all duration-500 ease-in-out"
-                />
-              </Link>
-            </picture>
-          );
-        })
+        Object.values(mangas).map((manga: Manga) => (
+          <MangaListItem key={manga.mal_id} manga={manga} />
+        ))
       ) : (
         <section className="bg-white w-full min-h-[70vh] md:min-h-[80vh] text-center flex justify-center items-center p-7">
           Empty.

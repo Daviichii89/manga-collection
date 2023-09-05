@@ -8,6 +8,9 @@ const SearchComponent = () => {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState<FormData>('');
 
+  const handleClick = () => {
+    window.history.pushState({}, 'Home', '/')
+  }
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     dispatch(getMangaSuccessAction(keyword));
@@ -30,6 +33,7 @@ const SearchComponent = () => {
         <button
           type="submit"
           className="bg-blue-500 rounded-r-lg text-white border p-2"
+          onClick={handleClick}
         >
           Search
         </button>
