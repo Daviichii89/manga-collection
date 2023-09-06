@@ -20,12 +20,8 @@ export interface Manga {
     }
   }
   synopsis: string
-  authors: [{
-    name: string
-  }]
-  demographics: [{
-    name?: string
-  }]
+  authors: [{name: string}]
+  demographics: [{name?: string}]
 }
 
 const getManga = async (manga_title: string) => {

@@ -7,7 +7,7 @@ describe('<Error404 />', () => {
         render(
             <MemoryRouter>
                 <Routes>
-                <Route path='/*' element={<Error404 />} />
+                <Route path='*' element={<Error404 />} />
                 </Routes>
             </MemoryRouter>
         )

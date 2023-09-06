@@ -12,11 +12,12 @@ const MangaDetail = () => {
     (store: RootState) => store.mangas.mangas || {}
   );
   const location = useLocation();
-  const manga = Object.values(mangas).find(
+  const manga = location?.state?.title ? Object.values(mangas).find(
     (manga: Manga) =>
       manga.title === location.state.title &&
       manga.mal_id === location.state.mal_id
-  );
+  )
+  : null
   
   return (
     <>
@@ -32,6 +33,10 @@ const MangaDetail = () => {
               fromYear={manga.published.prop.from.year}
               toYear={manga.published.prop.to.year}
               synopsis={manga.synopsis}
+              authors={manga.authors[0].name}
+              type={manga.demographics[0].name}
+              volumes={manga.volumes}
+              chapters={manga.chapters}
             />
           </main>
           <footer>

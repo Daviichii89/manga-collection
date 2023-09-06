@@ -4,14 +4,14 @@ import getManga, { Manga } from '../api/getManga';
 interface InitialState {
     mangas: Record<number, Manga> | undefined
 }
-interface SearchActionStart {
+export interface SearchActionStart {
     type: typeof SEARCH_MANGAS_START;
 }
-interface SearchActionFailed {
+export interface SearchActionFailed {
     type: typeof SEARCH_MANGAS_FAILED;
     payload: string
 }
-interface SearchActionSuccess {
+export interface SearchActionSuccess {
     type: typeof SEARCH_MANGAS_SUCCESS;
     payload: Record<number, Manga> | undefined
 }

@@ -4,17 +4,17 @@ import { Manga } from '../api/getManga'
 interface InitialState {
     mangas: Record<number, Manga> | object
 }
-interface AddMangaToCollectionAction {
+export interface AddMangaToCollectionActionType {
     type: typeof ADD_MANGA_TO_COLLECTION
     payload: Manga
 }
 
-interface DeleteMangaFromCollectionAction {
+export interface DeleteMangaFromCollectionActionType {
     type: typeof DELETE_MANGA_FROM_COLLECTION
     payload: Manga
 }
 
-type ActionTypes = AddMangaToCollectionAction | DeleteMangaFromCollectionAction
+type ActionTypes = AddMangaToCollectionActionType | DeleteMangaFromCollectionActionType
 const mangasFromLocalStorage  = localStorage.getItem('mangas')
 const mangasJSON = mangasFromLocalStorage ? JSON.parse(mangasFromLocalStorage) : undefined
 const initialState: InitialState = {mangas: mangasJSON || {}}
@@ -54,6 +54,3 @@ export const DeleteMangaFromCollectionAction = (manga: Manga) => (dispatch: Disp
         payload: manga
     })
 }
-
-const nombre = 'David'
-localStorage.setItem('nombre', nombre)
