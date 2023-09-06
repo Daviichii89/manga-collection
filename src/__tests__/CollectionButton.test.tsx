@@ -49,7 +49,7 @@ describe('<CollectionButton />', () => {
 
     render(
       <Provider store={store}>
-        <CollectionButton manga={sampleManga} />
+        <CollectionButton manga={} />
       </Provider>
     );
 
