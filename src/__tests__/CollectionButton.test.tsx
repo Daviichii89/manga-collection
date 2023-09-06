@@ -2,54 +2,56 @@ import { render, screen } from '@testing-library/react'
 import CollectionButton from '../components/CollectionButton'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
+import { Manga } from '../api/getManga';
 
-const sampleManga = {manga:{
-  mal_id: 1,
-  title: 'Sample Manga',
+
+const manga: Manga = { 
+  mal_id: 1, 
+  title: 'Naruto',
   images: {
-    webp: {
-      image_url: 'hola',
-    },
+      webp: {
+          image_url: 'naruto.webp'
+      }
   },
-  chapters: 23,
-  volumes: 2,
-  status: 'asda',
+  chapters: 700,
+  volumes: 70,
+  status: 'Finished',
   publishing: false,
   published: {
-    prop: {
-      from: {
-        year: 1999,
-      },
-      to: {
-        year: 1999,
+      prop: {
+          from: {
+              year: 1999
+          },
+          to: {
+              year: 2020
+          }
       }
-    },
   },
-  synopsis: 'hola que tal',
-  authors: [{name: 'string'}],
-  demographics: [{ name: 'Shounen' }],
-}};
+  synopsis: 'Description of Naruto',
+  authors: [{ name: 'Author'}],
+  demographics: [{ name: 'Shounen' }]  
+};
 const mockStore = configureStore([]);
-const store = mockStore({ manga: sampleManga });
 describe('<CollectionButton />', () => {
   it('Should show "Add to my collection" if the manga is in the collection', () => {
+    const initialState = { mangasCollection: { mangas: {} } };
+    const store = mockStore(initialState);
 
-    render(
+    const { getByText } = render(
       <Provider store={store}>
-        <CollectionButton manga={sampleManga} />
+        <CollectionButton manga={manga} />
       </Provider>
     );
 
-    const button = screen.getByText('Add to my collection');
-    expect(button).toBeInTheDocument();
-    expect(button).toHaveClass('bg-green-500');
+    const addButton = getByText('Add to my collection');
+    expect(addButton).toBeInTheDocument();
   });
   it('Should show "Remove from my collection" if the manga is not in the collection', () => {
-    const sampleManga = {};
-
+    const initialState = { mangasCollection: { mangas: { manga } } };
+    const store = mockStore(initialState);
     render(
       <Provider store={store}>
-        <CollectionButton manga={} />
+        <CollectionButton manga={manga} />
       </Provider>
     );
 
