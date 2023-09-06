@@ -1,9 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Manga } from '../api/getManga';
+/* eslint-disable quotes */
+import React from "react";
+import { Link } from "react-router-dom";
 
 interface MangaListItemProps {
-  manga: Manga;
+  manga: {
+    mal_id: number;
+    title: string;
+    images: {
+      webp: {
+        image_url: string;
+      };
+    };
+  };
 }
 
 const MangaListItem: React.FC<MangaListItemProps> = ({ manga }) => {
