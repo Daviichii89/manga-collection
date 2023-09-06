@@ -4,23 +4,26 @@ interface MangaInfoProps {
     publishing: boolean
     fromYear: number
     toYear: number | null
+    synopsis: string
 }
 
 const MangaInfo: React.FC<MangaInfoProps> = ({ 
     publishing,
     fromYear,
-    toYear 
+    toYear ,
+    synopsis
 }) => {
   return (
-    <div className="ml-4">
-        <p>En publicación: {publishing !== false ? 'Sí' : 'No'}</p>
-        <p>Año de publicación: {fromYear}</p>
-        <p>
-        Año de finalización:{' '}
-        {toYear !== null
+    <div className="ml-4 text-left w-full">
+        <p><span className='font-bold'>In publication</span>: {publishing !== false ? 'Yes' : 'No'}</p>
+        <p><span className='font-bold'>Published:</span> {fromYear} to {
+            toYear !== null
             ? toYear
-            : 'No definido'}
+            : '?'
+          }
         </p>
+        <p className='font-bold'>Synopsis:</p>
+        <p>{synopsis.replace(/—/g, ' ')}</p>
     </div>
   )
 }

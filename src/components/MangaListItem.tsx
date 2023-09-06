@@ -10,7 +10,7 @@ const MangaListItem: React.FC<MangaListItemProps> = ({ manga }) => {
   const { mal_id, title, images } = manga;
 
   return (
-    <div className="overflow-hidden">
+    <picture className="overflow-hidden">
       <Link to={`/mangas/${title}`} state={{ mal_id, title }} className="w-48">
         <img
           src={images.webp.image_url}
@@ -18,7 +18,7 @@ const MangaListItem: React.FC<MangaListItemProps> = ({ manga }) => {
           className="w-full border border-black hover:opacity-50 hover:scale-[1.3] transition-all duration-500 ease-in-out"
         />
       </Link>
-    </div>
+    </picture>
   );
 };
 

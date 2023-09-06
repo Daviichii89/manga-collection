@@ -6,11 +6,11 @@ interface MangaImageProps {
   }
 export const MangaCover: React.FC<MangaImageProps> = ({images, title}) => {
   return (
-    <picture>
+    <picture className='w-[225px]'>
         <img
           src={images}
           alt={title}
-          className="w-48"
+          className="w-64"
         />
     </picture>
   )

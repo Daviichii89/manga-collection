@@ -35,10 +35,7 @@ const getManga = async (manga_title: string) => {
       if(!response.ok) {
         throw new Error('Request error')
       }
-      console.log(response)
       const result = await response.json();
-      console.log(result.data)
-
       const mangas: Manga[] =  result.data
       const mangasMap: Record<number, Manga> = {}
       mangas.map(({
