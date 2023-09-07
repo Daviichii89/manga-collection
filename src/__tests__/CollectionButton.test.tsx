@@ -3,6 +3,8 @@ import CollectionButton from '../components/CollectionButton'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { Manga } from '../api/getManga';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 
 
 const manga: Manga = { 
@@ -32,18 +34,20 @@ const manga: Manga = {
   demographics: [{ name: 'Shounen' }]  
 };
 const mockStore = configureStore([]);
+const history = createMemoryHistory({ initialEntries: ['/collection'] })
 describe('<CollectionButton />', () => {
   it('Should show "Add to my collection" if the manga is in the collection', () => {
     const initialState = { mangasCollection: { mangas: {} } };
     const store = mockStore(initialState);
-
-    const { getByText } = render(
+    render(
       <Provider store={store}>
-        <CollectionButton manga={manga} />
+        <Router location={history.location} navigator={history}>
+          <CollectionButton manga={manga} />
+        </Router>
       </Provider>
     );
 
-    const addButton = getByText('Add to my collection');
+    const addButton = screen.getByText('Add to my collection');
     expect(addButton).toBeInTheDocument();
   });
   it('Should show "Remove from my collection" if the manga is not in the collection', () => {
@@ -51,7 +55,9 @@ describe('<CollectionButton />', () => {
     const store = mockStore(initialState);
     render(
       <Provider store={store}>
-        <CollectionButton manga={manga} />
+        <Router location={history.location} navigator={history}>
+          <CollectionButton manga={manga} />
+        </Router>
       </Provider>
     );
 

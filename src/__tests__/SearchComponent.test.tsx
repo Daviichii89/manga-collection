@@ -3,12 +3,17 @@ import userEvent from '@testing-library/user-event';
 import SearchComponent from '../components/SearchComponent';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 
+const history = createMemoryHistory()
 describe('SearchComponent', () => {
   it('Should all the elements in the component', () => {
     render(
       <Provider store={store}>
-        <SearchComponent />;
+        <Router location={history.location} navigator={history}>
+          <SearchComponent />
+        </Router>
       </Provider>
     );
 
@@ -21,7 +26,9 @@ describe('SearchComponent', () => {
   it('Should on click button clear the input value', () => {
     render(
       <Provider store={store}>
-        <SearchComponent />
+        <Router location={history.location} navigator={history}>
+          <SearchComponent />
+        </Router>
       </Provider>
     );
     const inputElement = screen.getByPlaceholderText(
