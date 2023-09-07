@@ -1,5 +1,5 @@
 import { AnyAction, Dispatch } from 'redux';
-import getManga, { Manga } from '../api/getManga';
+import { getManga, Manga } from '../api/getManga';
 
 interface InitialState {
     mangas: Record<number, Manga> | undefined

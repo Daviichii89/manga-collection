@@ -35,7 +35,7 @@ const MangaInfo: React.FC<MangaInfoProps> = ({
           }
         </p>
         <p className='font-bold'>Synopsis:</p>
-        <p>{synopsis.replace(/—/g, ' ')}</p>
+        <p className='p-2'>{synopsis ? synopsis.replace(/—/g, ' ') : 'Description is not available'}</p>
     </div>
   )
 }

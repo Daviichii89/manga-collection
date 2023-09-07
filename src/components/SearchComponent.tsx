@@ -1,20 +1,19 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { getMangaSuccessAction } from '../redux/mangaReducer';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 type FormData = string;
 
 const SearchComponent = () => {
   const dispatch = useDispatch();
   const [keyword, setKeyword] = useState<FormData>('');
-
-  const handleClick = () => {
-    window.history.pushState({}, 'Home', '/')
-  }
+  const navigate = useNavigate()
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     dispatch(getMangaSuccessAction(keyword));
     setKeyword('');
+    navigate('/')
   };
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setKeyword(evt.target.value);
@@ -32,8 +31,7 @@ const SearchComponent = () => {
         />
         <button
           type="submit"
-          className="bg-blue-500 rounded-r-lg text-white border p-2"
-          onClick={handleClick}
+          className="bg-blue-500 hover:bg-blue-400 rounded-r-lg text-white border p-2"
         >
           Search
         </button>

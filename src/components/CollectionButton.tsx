@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 import { Manga } from '../api/getManga';
 import {
   AddMangaToCollectionAction,
@@ -13,6 +14,7 @@ interface CollectionButtonProps {
 
 const CollectionButton: React.FC<CollectionButtonProps> = ({ manga }) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const mangasCollection = useSelector(
         (store: RootState) => store.mangasCollection.mangas
     );
@@ -25,6 +27,7 @@ const CollectionButton: React.FC<CollectionButtonProps> = ({ manga }) => {
         } else {
             dispatch(AddMangaToCollectionAction(manga))
         }
+        navigate('/collection');
     }
   return (
     <div className="mt-4">
