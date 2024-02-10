@@ -1,10 +1,16 @@
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import MangaDetail from '../pages/MangaDetail'
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: jest.fn(),
+}))
+
 const mockStore = configureStore()
+
 const initialState = {
   mangas: {
     mangas: {
@@ -35,37 +41,35 @@ const initialState = {
       },
     },
   },
+  mangasCollection: {
+    mangas: {},
+  },
 }
 
 describe('<MangaDetail />', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+    jest.resetAllMocks()
+  })
   it('Should show the manga title', () => {
+    const mockUseLocation = {
+        state: {
+          title: 'Naruto',
+          mal_id: 1,
+        },
+    }
+    require('react-router-dom').useLocation.mockReturnValue(mockUseLocation)
     const store = mockStore(initialState)
     render(
         <Provider store={store}>
-            <MemoryRouter initialEntries={['/mangas/naruto']}>
-                <Routes>
-                    <Route element={<MangaDetail />} />
-                </Routes>
+            <MemoryRouter initialEntries={['/mangas/Naruto']}>
+              <MangaDetail />
             </MemoryRouter>
         </Provider>
     )
 
-    expect(screen.getByText(/naruto/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/naruto/i)).toHaveLength(2);
+    expect(screen.getByAltText(/naruto/i)).toBeInTheDocument();
   })
-
-  it('Should show cover manga', () => {
-    const store = mockStore(initialState);
-    render(
-        <Provider store={store}>
-            <MemoryRouter initialEntries={['/mangas/naruto']}>
-                <Routes>
-                    <Route element={<MangaDetail />} />
-                </Routes>
-            </MemoryRouter>
-        </Provider>
-    );
-
-    expect(screen.getByAltText(/naruto/i)).toBeInTheDocument()
-  });
 
 });

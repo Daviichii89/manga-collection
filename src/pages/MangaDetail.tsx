@@ -35,7 +35,7 @@ const MangaDetail = () => {
         manga.mal_id === location.state.mal_id
     )
     : null)
-  
+    console.log(location.state.title)
   return (
     <>
       {manga || mangaCollection ? (

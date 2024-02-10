@@ -39,4 +39,22 @@ describe('SearchComponent', () => {
 
     expect(inputElement.value).not.toBe('One Piece');
   });
+
+  it('Prueba de submit', () => {
+    render(
+      <Provider store={store}>
+        <Router location={history.location} navigator={history}>
+          <SearchComponent />
+        </Router>
+      </Provider>
+    );
+    const inputElement = screen.getByPlaceholderText(
+      'Search for your mangas...'
+    ) as HTMLInputElement;
+    userEvent.type(inputElement, 'One Piece');
+    userEvent.click(screen.getByText('Search'));
+
+    expect(inputElement.value).toBe('');
+  }
+  );
 });

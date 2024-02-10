@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1707570496761" clover="3.2.0">
+  <project timestamp="1707570496761" name="All files">
+    <metrics statements="171" coveredstatements="141" conditionals="88" coveredconditionals="63" methods="42" coveredmethods="28" elements="301" coveredelements="232" complexity="0" loc="171" ncloc="171" packages="6" files="19" classes="19"/>
+    <package name="src">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="App.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/App.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.api">
+      <metrics statements="14" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="getManga.ts" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/api/getManga.ts">
+        <metrics statements="14" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="66" coveredstatements="57" conditionals="24" coveredconditionals="20" methods="18" coveredmethods="15"/>
+      <file name="CollectionButton.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/CollectionButton.tsx">
+        <metrics statements="17" coveredstatements="13" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="3"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+      </file>
+      <file name="Header.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/Header.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+      </file>
+      <file name="MainContent.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/MainContent.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+      </file>
+      <file name="MangaCover.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/MangaCover.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+      </file>
+      <file name="MangaInfo.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/MangaInfo.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+      </file>
+      <file name="MangaList.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/MangaList.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+      </file>
+      <file name="MangaListItem.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/MangaListItem.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="32" count="7" type="stmt"/>
+      </file>
+      <file name="Navbar.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/Navbar.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="3" type="stmt"/>
+      </file>
+      <file name="SearchComponent.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/components/SearchComponent.tsx">
+        <metrics statements="17" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages">
+      <metrics statements="34" coveredstatements="33" conditionals="50" coveredconditionals="31" methods="10" coveredmethods="9"/>
+      <file name="Collection.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/pages/Collection.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+      </file>
+      <file name="Error404.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/pages/Error404.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+      </file>
+      <file name="Home.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/pages/Home.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+      </file>
+      <file name="MangaDetail.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/pages/MangaDetail.tsx">
+        <metrics statements="19" coveredstatements="18" conditionals="42" coveredconditionals="23" methods="5" coveredmethods="4"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="70" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.redux">
+      <metrics statements="45" coveredstatements="38" conditionals="13" coveredconditionals="12" methods="10" coveredmethods="2"/>
+      <file name="collectionReducer.ts" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/redux/collectionReducer.ts">
+        <metrics statements="19" coveredstatements="17" conditionals="8" coveredconditionals="7" methods="5" coveredmethods="1"/>
+        <line num="18" count="10" type="stmt"/>
+        <line num="19" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="24" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="25" count="23" type="cond" truecount="3" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="21" type="stmt"/>
+        <line num="45" count="10" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="10" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+      </file>
+      <file name="mangaReducer.ts" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/redux/mangaReducer.ts">
+        <metrics statements="19" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="1"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="25" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="24" type="cond" truecount="4" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="21" type="stmt"/>
+        <line num="45" count="8" type="stmt"/>
+        <line num="48" count="8" type="stmt"/>
+        <line num="52" count="8" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+      </file>
+      <file name="store.ts" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/redux/store.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.routes">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/davidfernandez/Desktop/Dev/manga-collection/src/routes/index.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
