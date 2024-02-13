@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="text-center mb-6">
       <h1 className="text-3xl font-bold underline mb-6 text-white">
-        Mangas Collection
+        Manga Collection
       </h1>
       <SearchComponent />
     </header>
