@@ -1,8 +1,9 @@
 # Manga Collection
 
-<img src="https://github.com/Daviichii89/manga-collection/assets/21307408/1ec36494-c2da-4fe6-b01e-4885279d37dd" width="750" height="750">
+<img src="https://github.com/Daviichii89/manga-collection/assets/21307408/dc1741b2-2c65-4cf1-a46b-2262aa8ca432" width="850" height="750">
 
 It's a similar clone of Whakoom app, to save what mangas you have.
+
 
 ## Commands to run the project:
 
